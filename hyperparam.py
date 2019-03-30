@@ -7,7 +7,6 @@ Created on Sun Mar 10 22:40:52 2019
 
 import pandas as pd
 import numpy as np
-import json
 from sklearn import preprocessing
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import GridSearchCV
@@ -34,8 +33,6 @@ CV_clf = GridSearchCV(estimator = clf, param_grid = parameters, scoring = 'roc_a
 CV_clf.fit(processed_features, processed_targets)
 print(CV_clf.best_params_)
 test = {'CV_clf.best_params_': CV_clf.best_params_}
-with open('file.txt', 'w') as file:
-  file.write(json.dumps(CV_clf.best_params_))
-  file.write(json.dumps(test))
+
 
 
